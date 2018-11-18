@@ -62,6 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CamController.cs" />
+    <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Dima Yniversitet/4 kyrcc/Kyrssovic/3DGame/3DGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

@@ -325,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46179880}
   m_Layer: 0
-  m_Name: Spawn 4
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -591,6 +591,34 @@ Transform:
   - {fileID: 1392989358}
   m_Father: {fileID: 1475505542}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &88084827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 88084828}
+  m_Layer: 0
+  m_Name: EnemyClons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &88084828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 88084827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 0.5, z: 9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &89579907
 GameObject:
@@ -2264,6 +2292,7 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669907}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -2345,6 +2374,21 @@ MonoBehaviour:
   player: {fileID: 0}
   distance: 2
   height: 3
+--- !u!114 &534669907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4468d88c2f24f70448799b22c08c7cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawn: []
+  enemy: {fileID: 1103876678666696, guid: 2270036b15b3b414d9025a8e556fe5ab, type: 2}
+  count: 0
+  spawnTime: 1
 --- !u!1 &553792612
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,7 +3151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763440077}
   m_Layer: 0
-  m_Name: Spawn 2
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3207,7 +3251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 807724898}
   m_Layer: 0
-  m_Name: Spawn 3
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4011,7 +4055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1041967537}
   m_Layer: 0
-  m_Name: Spawn 1
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4238,8 +4282,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1085169418}
+  - component: {fileID: 1085169419}
   m_Layer: 0
-  m_Name: Enemy Spawns
+  m_Name: Spawns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4264,6 +4309,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1085169419
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1085169417}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1133437248
 GameObject:
   m_ObjectHideFlags: 0
@@ -4391,7 +4454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1223342668}
   m_Layer: 0
-  m_Name: Spawn 6
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6625,7 +6688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1811881667}
   m_Layer: 0
-  m_Name: Spawn 5
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
