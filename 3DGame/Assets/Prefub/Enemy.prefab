@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114918120213452048}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,6 +292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 0}
+  hp: 2
+  bonus: {fileID: 1626018816584648, guid: 9f5817f70d3053140900dc075cac666b, type: 2}
 --- !u!135 &135778075368225910
 SphereCollider:
   m_ObjectHideFlags: 1

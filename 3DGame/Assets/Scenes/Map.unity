@@ -2767,6 +2767,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607978906}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &621818485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 621818486}
+  m_Layer: 0
+  m_Name: Fire Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &621818486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 621818485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.34, y: 0.283, z: -4.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1939480066}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636206675
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,6 +3937,12 @@ MonoBehaviour:
   cam: {fileID: 0}
   rb: {fileID: 0}
   mario: {fileID: 0}
+  firePause: 0.5
+  ammo: 30
+  isFire: 1
+  fireBall: {fileID: 1598182952798022, guid: 326af3c1e6a38f24294cad1aa82db288, type: 2}
+  fireSpawn: {fileID: 621818485}
+  hp: 10
 --- !u!136 &968666662
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5924,7 +5958,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1654332094}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.534, y: -0, z: 0.49}
   m_LocalScale: {x: 100, y: 100.00012, z: 3}
   m_Children: []
   m_Father: {fileID: 0}

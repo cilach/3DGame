@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour {
 
     public float horizontal;
@@ -14,9 +15,18 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody rb;
     public GameObject mario;
 
-    
+    public float firePause = 0.5f;
+    public int ammo = 30;
+    public bool isFire = true;
 
-	void Start () {
+    //Пуля
+    public GameObject fireBall;
+    //Место спама пули
+    public GameObject fireSpawn;
+
+    public int hp = 10;
+
+    void Start () {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -43,6 +53,46 @@ public class PlayerController : MonoBehaviour {
 
         anim.SetFloat("Vertical", velocity.z);
         anim.SetFloat("Horizontal", velocity.x);
+        //При начажити на лкм стреляем
+        if (Input.GetKey(KeyCode.Mouse0)) {
+            StartCoroutine(Fire());
+        }
 
 	}
+
+    IEnumerator Fire() {
+        //Если разрешено стрелять и есть пули
+        if (isFire && ammo > 0) {
+            isFire = false;
+            ammo -= 1;
+            //Создаем пулю
+            Instantiate(fireBall,fireSpawn.transform.position,transform.rotation);
+            //Выдерживаем паузу
+            yield return new WaitForSeconds(firePause);
+            isFire = true;
+
+         }
+    }
+
+    void OnCollisionEnter(Collision collider)
+    {
+        // Если столкнулись с Enemy , отнимаем 1 хп
+        if (collider.gameObject.tag == "Enemy") {
+            hp -= 1;
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        //Если столкнулись с бонусом
+        if (collider.gameObject.tag == "Bonus") {
+            if (Random.Range(0, 2) == 1)
+            {
+                hp += 1;
+            }
+            else ammo += 10;
+            Destroy(collider.gameObject);
+        }
+    }
+
 }
