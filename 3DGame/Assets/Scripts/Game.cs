@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
@@ -22,8 +23,13 @@ public class Game : MonoBehaviour
     public GameObject player;
     public PlayerController playerController;
 
+    public Slider healthBar;
+    public Text ammoCount;
+    public Text mission;
+
     void Start()
     {
+        mission.text = "Найди кнопку";
         Transform spawns = GameObject.Find("Spawns").transform;
         spawn = new GameObject[6];
         //Заносим наши точки спама в массив
@@ -39,6 +45,8 @@ public class Game : MonoBehaviour
     {   
         //Если у персонажа нету хп , то он умерает и перезапуск игры
         if (playerController.hp <= 0) { StartCoroutine(PlayerDie()); }
+        ammoCount.text = playerController.ammo.ToString();
+        healthBar.value = playerController.hp;
     }
 
     IEnumerator Spawner()
@@ -63,6 +71,7 @@ public class Game : MonoBehaviour
     }
 
     public IEnumerator PushButton() {
+        mission.text = "Доберись до замка!";
         //Активируем мост и деактивируем bridgeCollider
         bridgeCollider.SetActive(false);
         bridge.SetActive(true);
@@ -90,6 +99,7 @@ public class Game : MonoBehaviour
     }
     //Запуск новой игры
     void StartGame() {
+        mission.text = "Найди кнопку";
         //Активируем модельку игрока , присваиваем хп и ammo
         player.SetActive(true);
         playerController.hp = 10;
@@ -100,6 +110,7 @@ public class Game : MonoBehaviour
    // Игрок умерает 
     IEnumerator PlayerDie()
     {
+        mission.text = "Попробуй еще раз";
         //Запуск карутина для удалению enemy
         StartCoroutine(EndGame(player));
         //Деактивируем персонажа 
