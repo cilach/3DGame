@@ -7,6 +7,8 @@ TagManager:
   - Ball
   - Enemy
   - Bonus
+  - Button
+  - End Game
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - 
   - 
   - 
   - 

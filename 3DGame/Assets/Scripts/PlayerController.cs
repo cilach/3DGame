@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     public Camera cam;
     public Rigidbody rb;
     public GameObject mario;
+    public Game game;
 
     public float firePause = 0.5f;
     public int ammo = 30;
@@ -30,8 +31,9 @@ public class PlayerController : MonoBehaviour {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
-	}
-	
+        game = cam.GetComponent<Game>();
+    }
+	 
 
 	void Update () {
         //Переменные ,которые отвечают за перемещение
@@ -80,6 +82,11 @@ public class PlayerController : MonoBehaviour {
         if (collider.gameObject.tag == "Enemy") {
             hp -= 1;
         }
+        //Если нажали на кнопку
+        if (collider.gameObject.tag == "Button")
+        {
+            StartCoroutine(game.PushButton());
+        }
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -93,6 +100,12 @@ public class PlayerController : MonoBehaviour {
             else ammo += 10;
             Destroy(collider.gameObject);
         }
+        //Если дошли до финиша, запускаем конец игры
+        if (collider.gameObject.tag == "End Game")
+        {
+            StartCoroutine(game.EndGame(this.gameObject));
+        }
+
     }
 
 }
