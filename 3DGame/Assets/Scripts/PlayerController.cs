@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     public Game game;
 
     public float firePause = 0.5f;
+    public int hp = 10;
     public int ammo = 30;
     public bool isFire = true;
 
@@ -25,13 +26,18 @@ public class PlayerController : MonoBehaviour {
     //Место спама пули
     public GameObject fireSpawn;
 
-    public int hp = 10;
+   //Двигающиеся платформы
+    public GameObject Platform_1;
+
 
     void Start () {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         game = cam.GetComponent<Game>();
+
+        //Двигающиеся платформы
+        Platform_1 = GameObject.Find("Is_Platform1");
     }
 	 
 
@@ -104,8 +110,22 @@ public class PlayerController : MonoBehaviour {
         if (collider.gameObject.tag == "End Game")
         {
             StartCoroutine(game.EndGame(this.gameObject));
+            Application.LoadLevel("lvl2");
         }
+        //Если встали на платформу , платформа становится родителем игрока
+        if (collider.gameObject.name == "Is_Platform1") { this.transform.SetParent(Platform_1.transform, true); }
 
+    }
+    
+    //Если сошли с платформы убрать перента
+    void OnTriggerExit(Collider Platform)
+    {
+        //Если игрок сошел с платформы,сбрасываем родителя в деффолтного
+        if (Platform.gameObject.name == "Is_Platform1")
+        {
+            this.transform.parent = null;
+        }
+        //Debug.Log("WORK!");
     }
 
 }

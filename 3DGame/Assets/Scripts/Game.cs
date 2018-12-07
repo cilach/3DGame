@@ -37,7 +37,7 @@ public class Game : MonoBehaviour
             spawn[i] = spawns.FindChild(i.ToString()).gameObject;
         playerController = player.GetComponent<PlayerController>();
 
-        bridge.SetActive(false);
+        bridge.SetActive(true);
 
         StartCoroutine(Spawner());
     }
@@ -51,6 +51,7 @@ public class Game : MonoBehaviour
 
     IEnumerator Spawner()
     {
+        isPlaying = false;
         if (isPlaying)
         {
             //Если объектов больше указаного количества, то изменяем время спавна
@@ -121,4 +122,6 @@ public class Game : MonoBehaviour
         yield return new WaitForSeconds(2f);
         StartGame();
     }
+
+  
 }
