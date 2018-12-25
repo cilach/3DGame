@@ -93,6 +93,10 @@ public class PlayerController : MonoBehaviour {
         {
             StartCoroutine(game.PushButton());
         }
+        if (collider.gameObject.tag == "Ball")
+        {
+            hp -= 1;
+        }
     }
 
     private void OnTriggerEnter(Collider collider)

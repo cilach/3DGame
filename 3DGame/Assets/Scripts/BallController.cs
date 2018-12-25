@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour {
 
 	void Start () {
         //Удаляем текущий объект
-        Destroy(this.gameObject, 30f);
+        Destroy(this.gameObject, 2f);
 	}
 	
 
