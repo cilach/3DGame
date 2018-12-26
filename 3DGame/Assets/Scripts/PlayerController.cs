@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour {
    //Двигающиеся платформы
     public GameObject Platform_1;
 
+    public GameObject gun1;
+    public GameObject gun2;
+    public Animator gun1_Anim;
+    //Collider m_collider;
 
     void Start () {
         anim = GetComponent<Animator>();
@@ -97,9 +101,36 @@ public class PlayerController : MonoBehaviour {
         {
             hp -= 1;
         }
+        if (collider.gameObject.name == "Gatling")
+        {
+            gun1_Anim = GameObject.Find("Gatling").GetComponent<Animator>();
+            gun1_Anim.enabled = false; 
+             // При убийстве енеми выпадет бонус
+             // if (Random.Range(0, 5) == 1) { Instantiate(bonus, transform.position, transform.rotation); }
+             gun1 = GameObject.Find("Gatling");
+            gun2 = GameObject.Find("LaserGun");
+            mario = GameObject.Find("Player");
+            
+            gun1.transform.parent = GameObject.Find("Player").transform;
+            gun1.transform.position = new Vector3(gun2.transform.position.x, gun2.transform.position.y, gun2.transform.position.z);
+            gun1.transform.rotation = new Quaternion(mario.transform.rotation.x, mario.transform.rotation.y, mario.transform.rotation.z, mario.transform.rotation.w);
+           
+           fireSpawn = GameObject.Find("Fire Spawn");
+            //  m_collider = GetComponent<Collider>();
+            // m_collider.enabled = false; можно просто отключить
+            //  Destroy(m_collider);
+
+            Destroy(gun2);
+            ammo = ammo + 50;
+            firePause = 0.3f;
+
+        }
     }
 
-    private void OnTriggerEnter(Collider collider)
+  
+
+
+private void OnTriggerEnter(Collider collider)
     {
         //Если столкнулись с бонусом
         if (collider.gameObject.tag == "Bonus") {
